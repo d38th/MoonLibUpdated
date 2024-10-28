@@ -468,6 +468,26 @@ function MoonLib:MakeWindow(WindowConfig)
 	local Minimized = false
 	local Loaded = false
 	local UIHidden = false
+    MinButton()
+
+
+    function MinButton()
+        if Input.KeyCode == Enum.KeyCode.LeftAlt then
+    
+            
+            MainWindow.Visible = false
+            UIHidden = true
+    
+            MoonLib:MakeNotification({
+                Name = "Interface Hidden",
+                Content = "Tap RightAlt to reopen the interface",
+                Time = 5
+            })
+            WindowConfig.CloseCallback()
+    
+        end
+    end
+
 
 	WindowConfig = WindowConfig or {}
 	WindowConfig.Name = WindowConfig.Name or "Moon Library"
@@ -647,7 +667,7 @@ function MoonLib:MakeWindow(WindowConfig)
 
 	AddDraggingFunctionality(DragPoint, MainWindow)
 
-    if Input.KeyCode == Enum.KeyCode.RightAlt then
+
         MainWindow.Visible = false
 		UIHidden = true
 
