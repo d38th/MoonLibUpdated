@@ -1728,7 +1728,7 @@ end
 
 
 
-if Input.KeyCode == Enum.KeyCode.RightAlt then
+if Enum.KeyCode == Enum.KeyCode.RightAlt then
     UIHidden = not UIHidden
     Minimized = not Minimized
 end
