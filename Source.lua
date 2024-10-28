@@ -664,7 +664,7 @@ function MoonLib:MakeWindow(WindowConfig)
 		end
 	end)
 
-	AddConnection(Input.KeyCode == Enum.KeyCode.RightAlt, function()
+	AddConnection(MinimizeBtn.MouseButton1Up, function()
 		if Minimized then
 			TweenService:Create(MainWindow, TweenInfo.new(0.5, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, 615, 0, 344)}):Play()
 			MinimizeBtn.Ico.Image = "rbxassetid://7072719338"
