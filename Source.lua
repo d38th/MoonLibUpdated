@@ -463,33 +463,19 @@ function MoonLib:Init()
 	end	
 end	
 
+
+
+
+
+
+
 function MoonLib:MakeWindow(WindowConfig)
 	local FirstTab = true
 	local Minimized = false
 	local Loaded = false
 	local UIHidden = false
- 
 
 
-    function MinButton()
-        if Input.KeyCode == Enum.KeyCode.LeftAlt then
-    
-            
-            MainWindow.Visible = false
-            UIHidden = true
-    
-            MoonLib:MakeNotification({
-                Name = "Interface Hidden",
-                Content = "Tap RightAlt to reopen the interface",
-                Time = 5
-            })
-            WindowConfig.CloseCallback()
-    
-        end
-    end
-
-    MinButton()
-    
 	WindowConfig = WindowConfig or {}
 	WindowConfig.Name = WindowConfig.Name or "Moon Library"
 	WindowConfig.ConfigFolder = WindowConfig.ConfigFolder or WindowConfig.Name
@@ -678,6 +664,24 @@ function MoonLib:MakeWindow(WindowConfig)
 			Time = 5
 		})
 		WindowConfig.CloseCallback()
+    end
+
+
+
+    function MinButton()
+            MainWindow.Visible = false
+            UIHidden = true
+    
+            MoonLib:MakeNotification({
+                Name = "Interface Hidden",
+                Content = "Tap RightAlt to reopen the interface",
+                Time = 5
+            })
+            WindowConfig.CloseCallback()
+        end
+
+    if Input.KeyCode == Enum.KeyCode.LeftAlt then
+        MinButton()
     end
 
 	AddConnection(CloseBtn.MouseButton1Up, function()
