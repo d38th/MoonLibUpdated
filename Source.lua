@@ -468,7 +468,7 @@ function MoonLib:MakeWindow(WindowConfig)
 	local Minimized = false
 	local Loaded = false
 	local UIHidden = false
-    MinButton()
+ 
 
 
     function MinButton()
@@ -488,7 +488,8 @@ function MoonLib:MakeWindow(WindowConfig)
         end
     end
 
-
+    MinButton()
+    
 	WindowConfig = WindowConfig or {}
 	WindowConfig.Name = WindowConfig.Name or "Moon Library"
 	WindowConfig.ConfigFolder = WindowConfig.ConfigFolder or WindowConfig.Name
