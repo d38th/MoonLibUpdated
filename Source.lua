@@ -1726,11 +1726,16 @@ end
 
 
 
-
+LocalPlayer:GetMouse().KeyDown:Connect(function(Shit)
+    if Shit == "x" then
+        UIHidden = not UIHidden
+        --Minimized = not Minimized
+    end
+end)
 
 if Enum.KeyCode.RightAlt then
     UIHidden = not UIHidden
-    Minimized = not Minimized
+    --Minimized = not Minimized
 end
 
 
