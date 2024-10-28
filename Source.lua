@@ -667,7 +667,7 @@ function MoonLib:MakeWindow(WindowConfig)
     end
 
 
-
+--[[
     function MinButton()
             MainWindow.Visible = false
             UIHidden = true
@@ -682,7 +682,7 @@ function MoonLib:MakeWindow(WindowConfig)
 
     if Input.KeyCode == Enum.KeyCode.LeftAlt then
         MinButton()
-    end
+    end]]
 
 	AddConnection(CloseBtn.MouseButton1Up, function()
 		MainWindow.Visible = false
