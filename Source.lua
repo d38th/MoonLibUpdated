@@ -7,6 +7,11 @@ local LocalPlayer = game:GetService("Players").LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 local HttpService = game:GetService("HttpService")
 
+local FirstTab = true
+local Minimized = false
+local Loaded = false
+local UIHidden = false
+
 local MoonLib = {
 	Elements = {},
 	ThemeObjects = {},
@@ -464,10 +469,7 @@ function MoonLib:Init()
 end	
 
 function MoonLib:MakeWindow(WindowConfig)
-	local FirstTab = true
-	local Minimized = false
-	local Loaded = false
-	local UIHidden = false
+	
 
 	WindowConfig = WindowConfig or {}
 	WindowConfig.Name = WindowConfig.Name or "Moon Library"
