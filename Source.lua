@@ -14,7 +14,7 @@ local MoonLib = {
 	Flags = {},
 	Themes = {
 		Default = {
-			Main = Color3.fromRGB(44, 48, 61),
+			Main = Color3.fromRGB(25, 25, 25),
 			Second = Color3.fromRGB(32, 32, 32),
 			Stroke = Color3.fromRGB(60, 60, 60),
 			Divider = Color3.fromRGB(60, 60, 60),
@@ -593,12 +593,12 @@ function MoonLib:MakeWindow(WindowConfig)
 		Font = Enum.Font.GothamBlack,
 		TextSize = 20
 	}), "Text")
-
+--[[
 	local WindowTopBarLine = AddThemeObject(SetProps(MakeElement("Frame"), {
 		Size = UDim2.new(1, 0, 0, 1),
 		Position = UDim2.new(0, 0, 1, -1)
 	}), "Stroke")
-
+]]
 	local MainWindow = AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(255, 255, 255), 0, 10), {
 		Parent = Moon,
 		Position = UDim2.new(0.5, -307, 0.5, -172),
@@ -612,12 +612,13 @@ function MoonLib:MakeWindow(WindowConfig)
 		--	ImageColor3 = Color3.fromRGB(33, 33, 33),
 		--	ImageTransparency = 0.7
 		--}),
+        --[[]]
 		SetChildren(SetProps(MakeElement("TFrame"), {
 			Size = UDim2.new(1, 0, 0, 50),
-			Name = "TopBar"
+			--Name = "TopBar"
 		}), {
 			WindowName,
-			WindowTopBarLine,
+			--WindowTopBarLine,
 			AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(255, 255, 255), 0, 7), {
 				Size = UDim2.new(0, 70, 0, 30),
 				Position = UDim2.new(1, -90, 0, 10)
@@ -627,8 +628,8 @@ function MoonLib:MakeWindow(WindowConfig)
 					Size = UDim2.new(0, 1, 1, 0),
 					Position = UDim2.new(0.5, 0, 0, 0)
 				}), "Stroke"), 
-				CloseBtn,
-				MinimizeBtn
+				--CloseBtn,
+				--MinimizeBtn
 			}), "Second"), 
 		}),
 		DragPoint,
@@ -670,7 +671,7 @@ function MoonLib:MakeWindow(WindowConfig)
 			wait(.02)
 			MainWindow.ClipsDescendants = false
 			WindowStuff.Visible = true
-			WindowTopBarLine.Visible = true
+			WindowTopBarLine.Visible = false
 		else
 			MainWindow.ClipsDescendants = true
 			WindowTopBarLine.Visible = false
