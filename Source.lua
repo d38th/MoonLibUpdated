@@ -463,18 +463,11 @@ function MoonLib:Init()
 	end	
 end	
 
-
-
-
-
-
-
 function MoonLib:MakeWindow(WindowConfig)
 	local FirstTab = true
 	local Minimized = false
 	local Loaded = false
 	local UIHidden = false
-
 
 	WindowConfig = WindowConfig or {}
 	WindowConfig.Name = WindowConfig.Name or "Moon Library"
@@ -654,36 +647,6 @@ function MoonLib:MakeWindow(WindowConfig)
 
 	AddDraggingFunctionality(DragPoint, MainWindow)
 
-
-        MainWindow.Visible = false
-		UIHidden = true
-
-        MoonLib:MakeNotification({
-			Name = "Interface Hidden",
-			Content = "Tap RightAlt to reopen the interface",
-			Time = 5
-		})
-		WindowConfig.CloseCallback()
-    end
-
-
---[[
-    function MinButton()
-            MainWindow.Visible = false
-            UIHidden = true
-    
-            MoonLib:MakeNotification({
-                Name = "Interface Hidden",
-                Content = "Tap RightAlt to reopen the interface",
-                Time = 5
-            })
-            WindowConfig.CloseCallback()
-        end
-
-    if Input.KeyCode == Enum.KeyCode.LeftAlt then
-        MinButton()
-    end]]
-
 	AddConnection(CloseBtn.MouseButton1Up, function()
 		MainWindow.Visible = false
 		UIHidden = true
@@ -700,6 +663,8 @@ function MoonLib:MakeWindow(WindowConfig)
 			MainWindow.Visible = true
 		end
 	end)
+
+    
 
 	AddConnection(MinimizeBtn.MouseButton1Up, function()
 		if Minimized then
@@ -1757,7 +1722,19 @@ function MoonLib:MakeWindow(WindowConfig)
 
 	
 	return TabFunction
-end   
+end
+
+
+
+
+
+AddConnection(Click.InputEnded, function(Input)
+    if Input.KeyCode == Enum.KeyCode.RightAlt then
+        UIHidden = not UIHidden
+        Minimized = not Minimized
+    end
+end)
+
 
 function MoonLib:Destroy()
 	Moon:Destroy()
