@@ -1728,7 +1728,7 @@ end
 
 UserInputService.InputBegan:Connect(function(Key,Processed)
     if Processed then return end
-    if Key.KeyCode == Enum.KeyCode.RightAlt then
+    if Key.KeyCode == Enum.KeyCode.RightAlt or Enum.KeyCode.X then
         UIHidden = not UIHidden
     end
 end)
