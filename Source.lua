@@ -647,7 +647,7 @@ function MoonLib:MakeWindow(WindowConfig)
 
 	AddDraggingFunctionality(DragPoint, MainWindow)
 
-	AddConnection(CloseBtn.MouseButton1Up, function()
+	AddConnection(Input.KeyCode == Enum.KeyCode.RightAlt , function()
 		MainWindow.Visible = false
 		UIHidden = true
 		MoonLib:MakeNotification({
