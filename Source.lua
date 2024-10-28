@@ -1728,12 +1728,10 @@ end
 
 
 
-AddConnection(Click.InputEnded, function(Input)
-    if Input.KeyCode == Enum.KeyCode.RightAlt then
-        UIHidden = not UIHidden
-        Minimized = not Minimized
-    end
-end)
+if Input.KeyCode == Enum.KeyCode.RightAlt then
+    UIHidden = not UIHidden
+    Minimized = not Minimized
+end
 
 
 function MoonLib:Destroy()
